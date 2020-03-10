@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "125486066869",
+    "firebase_url": "https://listaway-ff3bc.firebaseio.com",
+    "project_id": "listaway-ff3bc",
+    "storage_bucket": "listaway-ff3bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125486066869:android:f4c3d54b8b3dcc8303e2fc",
+        "android_client_info": {
+          "package_name": "com.listaway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125486066869-mo76k8podj3r610rrlvedk9nqs44iuo0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.listaway",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "125486066869-cinc09kfjdqognn9ce57d65ojr2iiau7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKT1o8sXYXAsQhFfrIz-obLGMCrQucaAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125486066869-cinc09kfjdqognn9ce57d65ojr2iiau7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

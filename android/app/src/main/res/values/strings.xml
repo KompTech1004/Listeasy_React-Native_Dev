@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Listeasy</string>
+    <string name="facebook_app_id">399528530807436</string>
+    <string name="fb_login_protocol_scheme">fb399528530807436</string>
+    <!-- <string name="facebook_app_id">820106268445537</string>
+    <string name="fb_login_protocol_scheme">fb820106268445537</string> -->
+</resources>
