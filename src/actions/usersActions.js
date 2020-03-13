@@ -181,11 +181,13 @@ export const updateUser = (newProfile, photo = null) => dispatch => {
   axios({
     method: 'post',
     url:
-      'http://3.136.62.106/Listeasy/backend/index.php/user/user_update_profile',
+      // 'http://3.136.62.106/Listeasy/backend/index.php/user/user_update_profile',
+      'http://13.58.111.58/Listeasy/backend/index.php/user/user_update_profile',
     data: profile,
     headers: {'Content-Type': 'multipart/form-data'},
   })
     .then(responseJson => {
+      // alert(responseJson.data.status);
       if (responseJson.data.status === 200) {
         dispatch(setUser(responseJson.data.userinfo));
         dispatch(setSuccess(true));
@@ -213,7 +215,8 @@ export const loginWithFacebook = token => dispatch => {
   //formData.append('action_time', '2019:12:19 04:13:50');
 
   fetch(
-    `http://3.136.62.106/Listeasy/backend/index.php/user/user_facebook_login`,
+    // `http://3.136.62.106/Listeasy/backend/index.php/user/user_facebook_login`,
+    `http://13.58.111.58/Listeasy/backend/index.php/user/user_facebook_login`,
     {
       method: 'POST',
       headers: {
@@ -242,7 +245,8 @@ export const loginWithGoogle = token => dispatch => {
   dispatch(setLoading(true));
 
   fetch(
-    `http://3.136.62.106/Listeasy/backend/index.php/user/user_google_login`,
+    // `http://3.136.62.106/Listeasy/backend/index.php/user/user_google_login`,
+    `http://13.58.111.58/Listeasy/backend/index.php/user/user_google_login`,
     {
       method: 'POST',
       headers: {
