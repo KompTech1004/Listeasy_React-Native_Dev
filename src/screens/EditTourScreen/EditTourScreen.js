@@ -234,6 +234,13 @@ class EditTourScreen extends Component {
     });
   };
 
+  handlePressOrder = () => {
+    const { tourData } = this.props;
+    this.props.navigation.navigate('Checkout', {
+      tourID: tourData.tourID
+    });
+  }
+
   componentDidMount() { }
 
   render() {
@@ -411,7 +418,13 @@ class EditTourScreen extends Component {
               buttonStyle={styles.btnStyleWhite}
               containerStyle={styles.btnContainerStyle}
               onPress={this.handlePressLink}
-            />:<></>
+            />:<Button
+                title="Order"
+                titleStyle={styles.btnTitleWhite}
+                buttonStyle={styles.btnStyleWhite}
+                containerStyle={styles.btnContainerStyle}
+                onPress={this.handlePressOrder}
+              />
           }
           <Button
             title="Preview Tour"

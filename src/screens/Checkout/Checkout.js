@@ -46,7 +46,7 @@ class Checkout extends React.Component {
                 url: "https://api.sandbox.paypal.com/v1/oauth2/token?grant_type=client_credentials",
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
-                    'Authorization': `Basic QVVpcXYzQjJDbUlQY1A1cHRqRXQwUHVyRmlwM1FMMVdqUUhacUduRlZyOVNFX09ub2NlNUdsTXc2Z2d0OFBURlBBRlQxblFpNGl2X09sNkQ6RU96LTVWU3ZsWGNpWTlXcXRDQTRJM2gzNzV5R3AydlJCQnRjS2JjbnNxc1pBV19qWjFKOF84UTBoWUEwOTF6WnA2UTVvY1EtQ293ZldrR08=`
+                    'Authorization': `Basic QVdvXzBBUjJveC1kcUdBUTZQRXViZEtEbXFZaXgzMFh3MFlpRnQtSWc4TWx0T0ZwYUdEU3QzSVpiQlZXZTFxQzVvVV9kbVkwcDhfb3N1WEw6RUZMb2JIdk5CekdfdEpfYlBuME9WdVJtV1BJODRmVHBtc0RtMDRsdk1MOTYtVUlMR1VFVm1DelltZ1JndUVKaFRmTlg3LTFpQ3RTUGFjWmU=`
                 }
             });
             this.setState({
@@ -84,7 +84,13 @@ class Checkout extends React.Component {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${response1.data.access_token}`
                     }
-                });
+                })
+                // .then(function (response) {
+                //     console.log(response.data);
+                // })
+                // .catch(function (error) {
+                //     console.log(error);
+                // });
                 const { id, links } = response2.data
                 let approvalUrl = links.find(data => data.rel == "approval_url")
                 console.log('approvalUrl----->', approvalUrl);
@@ -93,7 +99,7 @@ class Checkout extends React.Component {
                     loading: false,
                     paymentId: id,
                     approvalUrl: approvalUrl.href
-                })
+                });
             } catch (err) {
                 console.log('payment-error----->', err);
             }
@@ -105,6 +111,8 @@ class Checkout extends React.Component {
         this.setState({loading: false});
     }
     _onNavigationStateChange = async (webViewState) => {
+        const tourID = this.props.navigation.getParam('tourID', null);
+        // alert(tourID);
         const { token } = this.state;
         let props = this.props;
         if (webViewState.url.includes('https://example.com')) {
@@ -129,7 +137,8 @@ class Checkout extends React.Component {
                 });
                 console.log('payment-execute----->', response1);
                 this.setState({token: null, loading: false});
-                await props.orderTour(props.tour.tourID, moment().format("YYYY-MM-DD HH:mm:ss"));
+                // await props.orderTour(props.tour.tourID, moment().format("YYYY-MM-DD HH:mm:ss"));
+                await props.orderTour(tourID, moment().format("YYYY-MM-DD HH:mm:ss"));
                 props.navigation.navigate("MyTours");
             } catch (err) {
                 console.log('payment-error----->', err);
